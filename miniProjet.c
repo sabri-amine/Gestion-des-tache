@@ -22,7 +22,7 @@ int nextId = 1;
 int main() {
     int choix;
 
-    do {
+    do {     // Menu
         printf("1-Ajouter une nouvelle tache : \n");
         printf("2-Afficher la liste de toutes les taches :\n");
         printf("3-Modifier une tache:\n");
@@ -32,7 +32,7 @@ int main() {
         printf("Entrer votre choix : ");
         scanf("%d", &choix);
 
-        if (choix == 1) {
+        if (choix == 1) {        // Saisir Les taches
             printf("Saisir les Taches :\n");
             e[len].identifiant = nextId;
             nextId++;
@@ -51,7 +51,7 @@ int main() {
             scanf("%d", &e[len].deadline.annee);
 
             len++;
-        } else if (choix == 2) {
+        } else if (choix == 2) {        // Affichage des taches
             for (int i = 0; i < len; i++) {
                 printf("Identifiant: %d\n", e[i].identifiant);
                 printf("Title: %s\n", e[i].titre);
@@ -60,7 +60,7 @@ int main() {
                 printf("Date de Deadline: %d/%d/%d\n", e[i].deadline.jour, e[i].deadline.mois, e[i].deadline.annee);
                 printf("_______________________________________________\n");
             }
-        } else if (choix == 3) {
+        } else if (choix == 3) {            // Modifier les Taches
             int id;
             printf("Entrez identifiant de la tache a modifier : ");
             scanf("%d", &id);
@@ -99,7 +99,7 @@ int main() {
             if (!found) {
                 printf("Tache avec identifiant %d non trouvee.\n", id);
             }
-        } else if (choix == 4) {
+        } else if (choix == 4) {     // Supprimer des Taches
             int id;
             printf("Entrez identifiant de la tache a supprimer : ");
             scanf("%d", &id);
@@ -120,7 +120,7 @@ int main() {
             if (!found) {
                 printf("Tache avec identifiant %d non trouve.\n", id);
             }
-        } else if (choix == 5) {
+        } else if (choix == 5) {        // Recherche par id et titre
             int option;
             printf("Rechercher par :\n");
             printf("1. Identifiant\n");
@@ -170,7 +170,7 @@ int main() {
             } else {
                 printf("Option invalide.\n");
             }
-        } else if (choix == 6) {
+        } else if (choix == 6) {     // Affichage les Statistiques
             int total = len;
             int completes = 0, incompletes = 0;
 
