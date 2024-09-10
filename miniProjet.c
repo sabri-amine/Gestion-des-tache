@@ -74,11 +74,11 @@ int main() {
 
             case 2:         // asc 
                 for (int i = 0; i < len - 1; i++) {
-                for (int j = i + 1; j < len; j++) {
-                    if (strcmp(e[i].titre, e[j].titre) > 0) {
-                        Tache tmp = e[i];
-                        e[i] = e[j];
-                        e[j] = tmp;
+                for (int j = 0; j < len-i-1; j++) {
+                    if (strcmp(e[j].titre, e[j+1].titre) > 0) {
+                        Tache tmp = e[j];
+                        e[j] = e[j+1];
+                        e[j+1] = tmp;
                     }
                 }
             }
@@ -93,11 +93,12 @@ int main() {
             }
             break;
             case 3: // desc
+            Tache tmp;
             for (int i = 0; i < len - 1; i++) {
-                for (int j = i + 1; j < len; j++) {
-                    if (strcmp(e[i].titre, e[j].titre) < 0) {
-                        Tache tmp = e[i];
-                        e[i] = e[j];
+                for (int j = 0; j < len-i-1; j++) {
+                    if (strcmp(e[j].titre, e[j+1].titre) < 0) {
+                        tmp = e[j];
+                        e[j] = e[j+1];
                         e[j] = tmp;
                     }
                 }
