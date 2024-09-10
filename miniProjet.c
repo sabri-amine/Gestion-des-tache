@@ -52,7 +52,17 @@ int main() {
 
             len++;
         } else if (choix == 2) {        // Affichage des taches
-            for (int i = 0; i < len; i++) {
+
+        int choix ;
+
+        printf("1-Affichage Simple:\n");
+        printf("2-Affichage Asc 2:\n");
+        printf("3-Affichage Desc 3:\n");
+        scanf("%d",&choix);
+
+        switch(choix){
+            case 1:
+                for (int i = 0; i < len; i++) {
                 printf("Identifiant: %d\n", e[i].identifiant);
                 printf("Title: %s\n", e[i].titre);
                 printf("Description: %s\n", e[i].description);
@@ -60,6 +70,7 @@ int main() {
                 printf("Date de Deadline: %d/%d/%d\n", e[i].deadline.jour, e[i].deadline.mois, e[i].deadline.annee);
                 printf("_______________________________________________\n");
             }
+        }
         } else if (choix == 3) {            // Modifier les Taches
             int id;
             printf("Entrez identifiant de la tache a modifier : ");
@@ -145,7 +156,7 @@ int main() {
                     }
                 }
                 if (!found) {
-                    printf("Tache non trouvée.\n");
+                    printf("Tache non trouve.\n");
                 }
             } else if (option == 2) {
                 char titre[100];
@@ -183,8 +194,8 @@ int main() {
             }
 
             printf("Nombre total de taches : %d\n", total);
-            printf("Nombre de tâches completes : %d\n", completes);
-            printf("Nombre de tâches incompletes : %d\n", incompletes);
+            printf("Nombre de taches completes : %d\n", completes);
+            printf("Nombre de taches incompletes : %d\n", incompletes);
         } else {
             printf("Choix invalide.\n");
         }
