@@ -56,12 +56,12 @@ int main() {
         int choix ;
 
         printf("1-Affichage Simple:\n");
-        printf("2-Affichage Asc 2:\n");
-        printf("3-Affichage Desc 3:\n");
+        printf("2-Affichage Asc :\n");
+        printf("3-Affichage Desc :\n");
         scanf("%d",&choix);
 
         switch(choix){
-            case 1:
+            case 1:     // Simple
                 for (int i = 0; i < len; i++) {
                 printf("Identifiant: %d\n", e[i].identifiant);
                 printf("Title: %s\n", e[i].titre);
@@ -70,6 +70,48 @@ int main() {
                 printf("Date de Deadline: %d/%d/%d\n", e[i].deadline.jour, e[i].deadline.mois, e[i].deadline.annee);
                 printf("_______________________________________________\n");
             }
+            break;
+
+            case 2:         // asc 
+                for (int i = 0; i < len - 1; i++) {
+                for (int j = i + 1; j < len; j++) {
+                    if (strcmp(e[i].titre, e[j].titre) > 0) {
+                        Tache tmp = e[i];
+                        e[i] = e[j];
+                        e[j] = tmp;
+                    }
+                }
+            }
+
+            for (int i = 0; i < len; i++) {
+                printf("Identifiant: %d\n", e[i].identifiant);
+                printf("Title: %s\n", e[i].titre);
+                printf("Description: %s\n", e[i].description);
+                printf("Status: %d\n", e[i].status);
+                printf("Date de Deadline: %d/%d/%d\n", e[i].deadline.jour, e[i].deadline.mois, e[i].deadline.annee);
+                printf("_______________________________________________\n");
+            }
+            break;
+            case 3: // desc
+            for (int i = 0; i < len - 1; i++) {
+                for (int j = i + 1; j < len; j++) {
+                    if (strcmp(e[i].titre, e[j].titre) < 0) {
+                        Tache tmp = e[i];
+                        e[i] = e[j];
+                        e[j] = tmp;
+                    }
+                }
+            }
+
+            for (int i = 0; i < len; i++) {
+                printf("Identifiant: %d\n", e[i].identifiant);
+                printf("Title: %s\n", e[i].titre);
+                printf("Description: %s\n", e[i].description);
+                printf("Status: %d\n", e[i].status);
+                printf("Date de Deadline: %d/%d/%d\n", e[i].deadline.jour, e[i].deadline.mois, e[i].deadline.annee);
+                printf("_______________________________________________\n");
+            }
+            break;
         }
         } else if (choix == 3) {            // Modifier les Taches
             int id;
